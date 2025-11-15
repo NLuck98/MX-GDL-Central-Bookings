@@ -1,12 +1,10 @@
 """Create models Organizer & Activity with appropriate fields."""
 from django.db import models
-from user_management.models import Profile
-
 class Contact_Person(models.Model):
     contact_person_id = models.AutoField(primary_key=True)
     contact_name = models.CharField(max_length=255)
-    contact_email = models.CharField(max_length=255)
-    contact_number = models.EmailField(null=True, blank=True) #double check this
+    contact_email = models.EmailField(max_length=255)
+    contact_number = models.IntegerField()          #this is so ugly ngl
     def __str__(self):
         """Return the name of the Contact Person."""
         return self.contact_name
